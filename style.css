@@ -76,7 +76,7 @@ body {
     display: block;
     width: 50px;
     height: 50px;
-    background: url(../../../svg/filter_dark.svg) center no-repeat;
+    background: url(svg/filter_dark.svg) center no-repeat;
     cursor: pointer
 }
 
@@ -249,7 +249,7 @@ body {
 .filteringResult__elementPrice {
     color: #48f;
     border-top: 1px solid #48f;
-    background: url(../../../svg/cart_blue.svg) right 10px no-repeat;
+    background: url(svg/cart_blue.svg) right 10px no-repeat;
     position: relative;
     font-size: 18px;
     display: inline-block;
@@ -260,7 +260,7 @@ body {
 .filteringResult__element:first-of-type .filteringResult__elementPrice {
     color: #f66;
     border-top: 1px solid #f66;
-    background: url(../../../svg/cart_red.svg) right 10px no-repeat;
+    background: url(svg/cart_red.svg) right 10px no-repeat;
     padding: 10px 0 0
 }
 
@@ -380,7 +380,7 @@ header {
     display: inline-block;
     width: 50px;
     height: 50px;
-    background: url(../../../svg/menu_white.svg) center no-repeat;
+    background: url(svg/menu_white.svg) center no-repeat;
     cursor: pointer
 }
 
@@ -425,7 +425,7 @@ header {
     display: inline-block;
     width: 50px;
     height: 50px;
-    background: url(../../../svg/search_white.svg) center no-repeat;
+    background: url(svg/search_white.svg) center no-repeat;
     right: 50px;
     cursor: pointer;
     transition: all .4s;
@@ -458,7 +458,7 @@ header {
     display: inline-block;
     width: 50px;
     height: 50px;
-    background: url(../../../svg/cart_white.svg) center no-repeat;
+    background: url(svg/cart_white.svg) center no-repeat;
     right: 0;
     font-size: 0
 }
@@ -470,7 +470,7 @@ header {
 
     .header__searchLabel {
         display: inline-block;
-        background: url(../../../svg/search_white.svg) left top no-repeat;
+        background: url(svg/search_white.svg) left top no-repeat;
         width: 350px;
         height: 30px;
         position: relative;
