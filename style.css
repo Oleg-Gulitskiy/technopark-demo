@@ -8,6 +8,10 @@
     display: inline-block
 }
 
+.header__searchInput:focus,input:focus {
+    outline: 0
+}
+
 @font-face {
     font-family:RobotoMedium;src:url(fonts/RobotoMedium.ttf)
 }
@@ -171,9 +175,176 @@ body {
     }
 }
 
-.filteringResult,.header__menuElement {
+.filteringResult {
+    position: relative;
     font-family: RobotoMedium;
+    font-size: 0;
     text-align: center
+}
+
+.filteringResult__element,.filteringResult__element:visited {
+    position: relative;
+    font-size: 0;
+    color: #444;
+    display: inline-block;
+    width: 100%;
+    text-decoration: none;
+    border-top: 1px solid #999;
+    padding: 25px;
+    box-sizing: border-box;
+    text-align: left
+}
+
+.filteringResult__element:hover .filteringResult__elementName {
+    color: #48f
+}
+
+.filteringResult__element:first-of-type:hover .filteringResult__elementName {
+    color: #f66
+}
+
+.filteringResult__element:first-of-type {
+    width: 100%
+}
+
+.filteringResult__elementImgWrap {
+    display: inline-block;
+    width: 100%;
+    height: 140px;
+    position: relative
+}
+
+.filteringResult__elementImg {
+    max-width: 100%;
+    display: inline-block;
+    position: absolute;
+    bottom: 0;
+    vertical-align: bottom
+}
+
+.filteringResult__element:first-of-type .filteringResult__elementImg {
+    width: 262px;
+    height: 223px;
+    position: relative
+}
+
+.filteringResult__elementName {
+    font-size: 18px;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    padding: 15px 0 0
+}
+
+.filteringResult__elementDescription {
+    font-family: robotoRegular;
+    position: relative;
+    font-size: 14px;
+    white-space: pre-line;
+    line-height: 18px;
+    display: inline-block;
+    width: 100%
+}
+
+.filteringResult__elementPrice {
+    color: #48f;
+    border-top: 1px solid #48f;
+    background: url(../../../svg/cart_blue.svg) right 10px no-repeat;
+    position: relative;
+    font-size: 18px;
+    display: inline-block;
+    width: 100%;
+    padding: 10px 0 0
+}
+
+.filteringResult__element:first-of-type .filteringResult__elementPrice {
+    color: #f66;
+    border-top: 1px solid #f66;
+    background: url(../../../svg/cart_red.svg) right 10px no-repeat;
+    padding: 10px 0 0
+}
+
+.filteringResult__elementOldPrice {
+    display: none
+}
+
+.filteringResult__element:first-of-type .filteringResult__elementOldPrice {
+    font-size: 18px;
+    display: inline-block;
+    width: 100%;
+    text-decoration: line-through;
+    position: relative;
+    color: #999;
+    padding: 10px 0 10px 5px
+}
+
+@media screen and (min-width:640px) {
+    .filteringResult__element {
+        width: 50%;
+        border-top: none;
+        border-bottom: 1px solid #999
+    }
+
+    .filteringResult__element:nth-of-type(2n) {
+        border-right: 1px solid #999
+    }
+
+    .filteringResult__elementName {
+        height: 44px
+    }
+
+    .filteringResult__elementDescription {
+        height: 72px
+    }
+
+    .filteringResult__element:first-of-type {
+        text-align: right
+    }
+
+    .filteringResult__element:first-of-type .filteringResult__elementImgWrap {
+        width: 50%;
+        float: left;
+        padding-right: 20px;
+        box-sizing: border-box
+    }
+
+    .filteringResult__element:first-of-type .filteringResult__elementName {
+        margin-top: 24px;
+        width: 50%;
+        vertical-align: top;
+        padding: 0;
+        text-align: left
+    }
+
+    .filteringResult__element:first-of-type .filteringResult__elementDescription,.filteringResult__element:first-of-type .filteringResult__elementOldPrice,.filteringResult__element:first-of-type .filteringResult__elementPrice {
+        width: 50%;
+        text-align: left
+    }
+}
+
+@media screen and (min-width:960px) {
+    .filteringResult__element {
+        width: 320px;
+        height: 377px;
+        vertical-align: bottom
+    }
+
+    .filteringResult__element:first-of-type {
+        width: 640px;
+        border-right: 1px solid #999
+    }
+
+    .filteringResult__element:nth-of-type(2) {
+        border-right: none
+    }
+
+    .filteringResult__element:nth-of-type(3n+3),.filteringResult__element:nth-of-type(3n+4) {
+        border-right: 1px solid #999
+    }
+
+    .filteringResult__element:nth-of-type(3n+5) {
+        border-right: none
+    }
 }
 
 @media screen and (min-width:1280px) {
@@ -187,6 +358,14 @@ body {
 
     .filter__brandList {
         margin-left: 40px
+    }
+
+    .filteringResult__element:nth-of-type(4n+3) {
+        border-right: none
+    }
+
+    .filteringResult__element:nth-of-type(4n+2),.filteringResult__element:nth-of-type(4n+4),.filteringResult__element:nth-of-type(4n+5) {
+        border-right: 1px solid #999
     }
 }
 
@@ -223,10 +402,12 @@ header {
 }
 
 .header__menuElement {
+    font-family: RobotoMedium;
     color: #444;
     text-decoration: none;
     display: block;
     text-transform: uppercase;
+    text-align: center;
     font-size: 18px;
     line-height: 50px
 }
@@ -307,6 +488,10 @@ header {
 }
 
 @media screen and (min-width:960px) {
+    .header__cart:hover,.header__check:hover {
+        text-shadow: 0 0 1px
+    }
+
     header {
         padding: 20px 20px 0;
         height: 100px
@@ -381,193 +566,5 @@ header {
 @media screen and (min-width:1280px) {
     .header__searchLabel {
         width: 500px
-    }
-}
-
-.filteringResult {
-    position: relative;
-    font-size: 0
-}
-
-.filteringResult__element,.filteringResult__element:visited {
-    position: relative;
-    font-size: 0;
-    color: #444;
-    display: inline-block;
-    width: 100%;
-    text-decoration: none;
-    border-top: 1px solid #999;
-    padding: 25px;
-    box-sizing: border-box;
-    text-align: left
-}
-
-.filteringResult__element:hover .filteringResult__elementName {
-    color: #48f
-}
-
-.filteringResult__element:first-of-type:hover .filteringResult__elementName {
-    color: #f66
-}
-
-.filteringResult__element:first-of-type {
-    width: 100%
-}
-
-.filteringResult__elementImgWrap {
-    display: inline-block;
-    width: 100%;
-    height: 140px;
-    position: relative
-}
-
-.filteringResult__elementImg {
-    max-width: 100%;
-    display: inline-block;
-    position: relative;
-    bottom: 0
-}
-
-.filteringResult__element:first-of-type .filteringResult__elementImg {
-    width: 262px;
-    height: 223px
-}
-
-.filteringResult__elementName {
-    font-size: 18px;
-    position: relative;
-    display: inline-block;
-    width: 100%;
-    padding: 15px 0 0
-}
-
-.filteringResult__elementDescription {
-    font-family: robotoRegular;
-    position: relative;
-    font-size: 14px;
-    white-space: pre-line;
-    line-height: 18px;
-    display: inline-block;
-    width: 100%
-}
-
-.filteringResult__elementPrice {
-    color: #48f;
-    border-top: 1px solid #48f;
-    background: url(../../../svg/cart_blue.svg) right center no-repeat;
-    position: relative;
-    font-size: 18px;
-    display: inline-block;
-    width: 100%;
-    padding: 10px 0 0
-}
-
-.filteringResult__element:first-of-type .filteringResult__elementPrice {
-    color: #f66;
-    border-top: 1px solid #f66;
-    background: url(../../../svg/cart_red.svg) right center no-repeat;
-    padding: 10px 0 0
-}
-
-.filteringResult__elementOldPrice {
-    display: none
-}
-
-.filteringResult__element:first-of-type .filteringResult__elementOldPrice {
-    font-size: 18px;
-    display: inline-block;
-    width: 100%;
-    text-decoration: line-through;
-    position: relative;
-    color: #999;
-    padding: 10px 0
-}
-
-@media screen and (min-width:640px) {
-    .filteringResult__element {
-        width: 50%;
-        border-top: none;
-        border-bottom: 1px solid #999
-    }
-
-    .filteringResult__element:nth-of-type(2n) {
-        border-right: 1px solid #999
-    }
-
-    .filteringResult__elementName {
-        height: 44px
-    }
-
-    .filteringResult__elementDescription {
-        height: 72px
-    }
-
-    .filteringResult__element:first-of-type {
-        text-align: right
-    }
-
-    .filteringResult__element:first-of-type .filteringResult__elementImgWrap {
-        width: 50%;
-        float: left;
-        padding-right: 20px;
-        box-sizing: border-box
-    }
-
-    .filteringResult__element:first-of-type .filteringResult__elementName {
-        margin-top: 24px;
-        width: 50%;
-        vertical-align: top;
-        padding: 0;
-        text-align: left
-    }
-
-    .filteringResult__element:first-of-type .filteringResult__elementDescription {
-        width: 50%;
-        text-align: left
-    }
-
-    .filteringResult__element:first-of-type .filteringResult__elementOldPrice {
-        width: 51%;
-        text-align: left
-    }
-
-    .filteringResult__element:first-of-type .filteringResult__elementPrice {
-        width: 50%;
-        text-align: left
-    }
-}
-
-@media screen and (min-width:960px) {
-    .filteringResult__element {
-        width: 320px;
-        height: 377px;
-        vertical-align: bottom
-    }
-
-    .filteringResult__element:first-of-type {
-        width: 640px;
-        border-right: 1px solid #999
-    }
-
-    .filteringResult__element:nth-of-type(2) {
-        border-right: none
-    }
-
-    .filteringResult__element:nth-of-type(3n+3),.filteringResult__element:nth-of-type(3n+4) {
-        border-right: 1px solid #999
-    }
-
-    .filteringResult__element:nth-of-type(3n+5) {
-        border-right: none
-    }
-}
-
-@media screen and (min-width:1280px) {
-    .filteringResult__element:nth-of-type(4n+3) {
-        border-right: none
-    }
-
-    .filteringResult__element:nth-of-type(4n+2),.filteringResult__element:nth-of-type(4n+4),.filteringResult__element:nth-of-type(4n+5) {
-        border-right: 1px solid #999
     }
 }
